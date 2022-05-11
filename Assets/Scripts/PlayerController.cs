@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             score = score + 1;
             Debug.Log("Score: " + score);
+            scoreText.text = "Score: " + score.ToString();
         }
         if (other.gameObject.tag == "Trap")
         {
@@ -65,4 +67,5 @@ public class PlayerController : MonoBehaviour
     private int score;
     public int health;
     private Scene scene;
+    public Text scoreText;
 }
