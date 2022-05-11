@@ -43,14 +43,18 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(0, 0, -1000 * Time.deltaTime * speed);
         }
     }
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Pickup")
         {
             other.gameObject.SetActive(false);
             score = score + 1;
-            Debug.Log("Score: " + score);
-            scoreText.text = "Score: " + score.ToString();
+            //Debug.Log("Score: " + score);
+            SetScoreText();
         }
         if (other.gameObject.tag == "Trap")
         {
